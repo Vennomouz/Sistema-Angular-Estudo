@@ -37,7 +37,24 @@ export class AuthService {
 
   logar(usuarioLogar: UsuarioLogar){
     let obj = JSON.stringify({usuarioLogar});
-    return this.http.post<any>('http://localhost:80/classes/logar.php', obj);
+    console.log(usuarioLogar)
+    console.log(obj)
+
+  //   return this.http.post<any>('http://localhost:80/classes/logar.php', obj, {headers: header}).pipe(map(data => {
+  //     // store user details and jwt token in local storage to keep user logged in between page refreshes
+
+  //     //localStorage.setItem('currentUser', JSON.stringify(user));
+  //     //this.currentUserSubject.next(user);
+  //     console.log('testeeeeeeeeeeeeeeeeeee');
+  //     console.log(data);
+  //     return data;
+  // }));
+
+
+    return this.http.post<any>('http://localhost:80/classes/logar.php', obj).subscribe(function(data){
+      console.log(data)
+    })
+
   }
 
 }

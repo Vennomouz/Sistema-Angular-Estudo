@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   usuario: string = '';
   senha: string ='';
   user: UsuarioLogar = new UsuarioLogar(this.usuario, this.senha);
+  resp: string = ''
   
   constructor(
     private authService: AuthService,
@@ -27,10 +28,17 @@ export class LoginComponent implements OnInit {
     this.user.usuario = this.usuario;
     this.user.senha = this.senha;
 
-    console.log(this.user);
+    // console.log(this.user);
 
     // this.authService.logar(this.user).then(function(data){
 
+    // })
+
+    this.authService.logar(this.user);
+    
+    // .subscribe(data =>{
+    //   console.log(data)
+    //   console.log('teste')
     // })
 
     // this.authService.logar(this.user).subscribe((data: JSON) => {
